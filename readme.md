@@ -1,6 +1,6 @@
 # Easy Markdown
 
-<img src="http://davidwells.io/wp-content/uploads/2016/05/easy-markdown-logo-300x110.png" alt="easy-markdown-logo" width="300" height="110" class="aligncenter size-medium wp-image-5280" />
+<img src="http://davidwells.io/wp-content/uploads/2016/05/easy-markdown-logo-300x110.png" alt="easy-markdown-logo" width="300" height="110" class="size-medium wp-image-5280" />
 
 Blogging about code in WordPress has historically been a **HUGE** pain in the ass.
 
@@ -17,6 +17,14 @@ So like any good developer. I rolled my own.
 http://www.youtube.com/watch?v=dRMow19g0VU
 
 [Download Easy Markdown Plugin](https://github.com/davidwells/easy-markdown)
+
+# Usage:
+
+1. [Download](https://github.com/davidwells/easy-markdown)
+2. [Install](http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/)
+3. Visit profile and check 'Disable the visual editor when writing' in the profile page of WP admin `/wp-admin/profile.php`
+
+# About
 
 Syntax highlighting is handled by [Prism](http://prismjs.com/).
 
