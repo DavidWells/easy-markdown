@@ -1,5 +1,7 @@
 # Easy Markdown
 
+> TLDR; Write posts in WordPress using github flavored markdown without wanting to kill yourself.
+
 <img src="http://davidwells.io/wp-content/uploads/2016/05/easy-markdown-logo-300x110.png" alt="easy-markdown-logo" width="300" height="110" class="size-medium wp-image-5280" />
 
 Blogging about code in WordPress has historically been a **HUGE** pain in the ass.
@@ -18,17 +20,39 @@ http://www.youtube.com/watch?v=dRMow19g0VU
 
 [Download Easy Markdown Plugin](https://github.com/davidwells/easy-markdown)
 
-# Usage:
+I made this with a focus on JavaScript and it supports ES6 javascript syntax highlighting and JSX for React code snippets.
+
+### Languages Supported:
+
+- html
+- css
+- javascript (ES6)
+- applescript
+- bash
+- git
+- json
+- less
+- markdown
+- jsx
+- sass
+- scss
+- yaml
+
+If you don't see your language here, make a custom Prism build and replace the `prism.js` [file](https://github.com/DavidWells/easy-markdown/blob/master/js/prism.js).
+
+# Install:
 
 1. [Download](https://github.com/davidwells/easy-markdown)
 2. [Install](http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/)
 3. Visit profile and check 'Disable the visual editor when writing' in the profile page of WP admin `/wp-admin/profile.php`
 
-# About
+# Prior Art
 
 Syntax highlighting is handled by [Prism](http://prismjs.com/).
 
 The Markdown parser was shamelessly gutted from [JetPack](https://wordpress.org/plugins/jetpack/) and [Evan Solomon](https://github.com/evansolomon)'s GitHub flavored markdown script
+
+Thanks! =)
 
 # Examples:
 
