@@ -8,30 +8,36 @@ jQuery(document).ready(function($) {
 
   function checkTab(evt) {
     var t = evt.target;
-    console.log(t)
     var ss = t.selectionStart;
     var se = t.selectionEnd;
     var key = evt.keyCode || evt.charCode || 0;
-    var commandPressed = evt.metaKey
+    var commandPressed = evt.shiftKey;
     var numberOfLines = t.value.slice(ss, se).split('\n');
-    // Command + [
-    if (evt.keyCode === 219 && commandPressed) {
+
+    // Shif + Tab - delete tab insertion at the beginning of the line
+    if (evt.keyCode === 9 && commandPressed) {
       evt.preventDefault();
       var pre = t.value.slice(0, ss);
+      // Redefine ss and pre, so it gets the complete initial line as part of the selection
+      ss = pre.lastIndexOf("\n") + 1;
+      pre = t.value.slice(0, ss);
       var sel = t.value.slice(ss, se).split('\n');
       var post = t.value.slice(se, t.value.length);
-      var newSel = []
-      var count = 0
+      var newSel = [];
+      var count = 0;
       for (var i = 0; i < sel.length; i++) {
         if (sel[i].match(tab)) {
-          count++
+          count++;
         }
-        newSel.push(sel[i].replace(tab, ''))
+        newSel.push(sel[i].replace(tab, ''));
       }
-      var updatedContent = newSel.join('\n')
+      var updatedContent = newSel.join('\n');
       t.value = pre.concat(updatedContent).concat(post);
       t.selectionStart = ss;
       t.selectionEnd = se - (tab.length * count);
+      
+      // This prevents any default behavior. preventDefault() is not enough
+      return false;
     }
     // Tab key - insert tab expansion
     if (evt.keyCode === 9) {
@@ -40,6 +46,9 @@ jQuery(document).ready(function($) {
       // Special case of multi line selection
       if (ss != se && t.value.slice(ss, se).indexOf("\n") != -1) {
         var pre = t.value.slice(0, ss);
+        // redefine ss and pre, so it gets the complete initial line as part of the selection
+        ss = pre.lastIndexOf("\n") + 1;
+        pre = t.value.slice(0, ss);
         var sel = t.value.slice(ss, se).replace(/\n/g, "\n" + tab);
         var post = t.value.slice(se, t.value.length);
         t.value = pre.concat(tab).concat(sel).concat(post);
@@ -79,7 +88,7 @@ jQuery(document).ready(function($) {
 
   var textarea = document.getElementsByTagName('textarea')[0];
 
-  textarea.onkeydown = checkTab
+  textarea.onkeydown = checkTab;
 
 
 });
